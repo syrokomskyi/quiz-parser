@@ -1,0 +1,33 @@
+{
+  "name": "quiz-collector",
+  "version": "1.0.0",
+  "description": "Сбор уникальных викторин с OpenTDB API",
+  "main": "quiz_collector.js",
+  "type": "module",
+  "scripts": {
+    "build": "tsc quiz_collector.ts --target ES2022 --module ESNext --moduleResolution node --outDir dist && tsc quiz_stats.ts --target ES2022 --module ESNext --moduleResolution node --outDir dist",
+    "start": "node dist/quiz_collector.js",
+    "stats": "node dist/quiz_stats.js",
+    "dev": "node --loader ts-node/esm quiz_collector.ts",
+    "dev:stats": "node --loader ts-node/esm quiz_stats.ts",
+    "clean": "rm -rf dist unique_quizzes.json",
+    "format": "cls && pnpm exec biome format --write .",
+    "upgrade-packages": "pnpm update -r --latest"
+  },
+  "devDependencies": {
+    "@types/node": "^24.5.2",
+    "@biomejs/biome": "2.2.4",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.9.2"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "keywords": [
+    "quiz",
+    "trivia",
+    "api",
+    "typescript",
+    "collector"
+  ]
+}

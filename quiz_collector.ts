@@ -20,8 +20,13 @@ interface QuizCollection {
   quizzes: Quiz[];
 }
 
+// Use https://opentdb.com/api_token.php?command=request for generate a new session token.
+const token =
+  "301146d4bf8749c34f0dea29cec46e0978eded179b43387c7cea1353d2a0f70e";
+
 class QuizCollector {
-  private readonly apiUrl = "https://opentdb.com/api.php?amount=20";
+  private readonly apiUrl =
+    `https://opentdb.com/api.php?amount=20&token=${token}`;
   private readonly outputFile = "unique_quizzes.json";
 
   private delayMs() {

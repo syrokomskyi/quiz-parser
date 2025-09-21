@@ -105,3 +105,49 @@ pnpm run clean
 ## Algorithm of uniqueness
 
 Uniqueness of quizzes is determined by the combination of `question + correct_answer`, ensuring reliable identification of duplicates.
+
+## Example of Statistics
+
+```bash
+pnpm run dev:stats
+```
+
+📊 STATISTICS OF COLLECTED QUIZZES
+
+🎯 Total unique quizzes: 1486
+📅 Last updated: 22.09.2025, 20:10:13
+
+📝 By types:
+   multiple: 1263 (85.0%)
+   boolean: 223 (15.0%)
+
+⭐ By difficulty:
+   easy: 494 (33.2%)
+   medium: 696 (46.8%)
+   hard: 296 (19.9%)
+
+🏆 Top-10 categories:
+
+   1. Entertainment: Video Games: 360 quizzes
+   2. Entertainment: Music: 145 quizzes
+   3. General Knowledge: 116 quizzes
+   4. History: 101 quizzes
+   5. Geography: 100 quizzes
+   6. Entertainment: Film: 94 quizzes
+   7. Science & Nature: 85 quizzes
+   8. Entertainment: Japanese Anime & Manga: 66 quizzes
+   9. Entertainment: Television: 57 quizzes
+   10. Science: Computers: 50 quizzes
+
+📈 Total categories: 24
+
+💡 Examples of questions:
+
+   EASY: What colour is the female blackbird?
+   Answer: Brown
+
+   MEDIUM: What is the exact length of one non-curved part in Lane 1 of an Olympic Track?
+   Answer: 84.39m
+
+   HARD: Which of these artists did NOT remix the song "Faded" by Alan Walker?
+   Answer: Skrillex

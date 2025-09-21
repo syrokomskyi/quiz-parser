@@ -1,4 +1,4 @@
-import fs from "fs";
+import fs from "node:fs";
 
 interface Quiz {
   type: "multiple" | "boolean";
@@ -23,7 +23,7 @@ interface QuizCollection {
 class QuizCollector {
   private readonly apiUrl = "https://opentdb.com/api.php?amount=20";
   private readonly outputFile = "unique_quizzes.json";
-  
+
   private delayMs() {
     return Math.floor(Math.random() * 3000) + 1200;
   }
@@ -49,9 +49,7 @@ class QuizCollector {
           this.uniqueQuizzes.set(key, quiz);
         });
 
-        console.log(
-          `Loaded ${collection.quizzes.length} existing quizzes`,
-        );
+        console.log(`Loaded ${collection.quizzes.length} existing quizzes`);
       }
     } catch (error) {
       console.error("Error loading existing quizzes:", error);
@@ -119,9 +117,7 @@ class QuizCollector {
 
   public async collectQuizzes(): Promise<void> {
     console.log("Starting quiz collection...");
-    console.log(
-      `Current unique quizzes count: ${this.uniqueQuizzes.size}`,
-    );
+    console.log(`Current unique quizzes count: ${this.uniqueQuizzes.size}`);
 
     let requestCount = 0;
     let consecutiveEmptyResults = 0;
@@ -133,22 +129,17 @@ class QuizCollector {
 
       const newQuizzes = await this.fetchQuizzes();
       if (newQuizzes.length === 0) {
-        console.log(
-          "Unable to retrieve quizzes, retrying in 2.5 seconds...",
-        );
+        console.log("Unable to retrieve quizzes, retrying in 2.5 seconds...");
         await this.delay();
         continue;
       }
 
-      const sizeBefore = this.uniqueQuizzes.size;
       const addedCount = this.addUniqueQuizzes(newQuizzes);
 
       console.log(
         `Received ${newQuizzes.length} quizzes, added ${addedCount} new unique`,
       );
-      console.log(
-        `Total unique quizzes: ${this.uniqueQuizzes.size}`,
-      );
+      console.log(`Total unique quizzes: ${this.uniqueQuizzes.size}`);
 
       // Save after each successful request
       this.saveQuizzes();
@@ -160,7 +151,9 @@ class QuizCollector {
         );
 
         if (consecutiveEmptyResults >= maxConsecutiveEmpty) {
-          console.log("\n🎉 Collection completed! All unique quizzes collected.");
+          console.log(
+            "\n🎉 Collection completed! All unique quizzes collected.",
+          );
           break;
         }
       } else {
@@ -189,7 +182,7 @@ class QuizCollector {
     }
 
     // Do several test requests
-    let testCount = 3;
+    const testCount = 3;
     let newQuizzesFound = 0;
 
     for (let i = 0; i < testCount; i++) {
@@ -206,9 +199,7 @@ class QuizCollector {
     }
 
     if (newQuizzesFound === 0) {
-      console.log(
-        "✅ Idempotency confirmed - no new quizzes found.",
-      );
+      console.log("✅ Idempotency confirmed - no new quizzes found.");
       console.log(`Total unique quizzes: ${this.uniqueQuizzes.size}`);
       return true;
     } else {

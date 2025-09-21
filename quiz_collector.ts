@@ -129,7 +129,7 @@ class QuizCollector {
 
       const newQuizzes = await this.fetchQuizzes();
       if (newQuizzes.length === 0) {
-        console.log("Unable to retrieve quizzes, retrying in 2.5 seconds...");
+        console.log("Unable to retrieve quizzes, retrying...");
         await this.delay();
         continue;
       }

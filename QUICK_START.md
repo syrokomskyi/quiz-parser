@@ -41,5 +41,5 @@ pnpm run clean       # Clear all data
 
 - **Idempotency**: repeated run immediately ends if data is already collected
 - **Autostop**: stops when 100% of quizzes are repeated  
-- **Safety**: obeys API limits (1 request every 2.5 seconds)
+- **Safety**: obeys API limits
 - **Reliability**: saves data after each request

@@ -25,7 +25,7 @@ class QuizCollector {
   private readonly outputFile = "unique_quizzes.json";
 
   private delayMs() {
-    return Math.floor(Math.random() * 3000) + 1200;
+    return Math.floor(Math.random() * 6000) + 6000;
   }
 
   private uniqueQuizzes: Map<string, Quiz> = new Map();
@@ -160,8 +160,7 @@ class QuizCollector {
         consecutiveEmptyResults = 0; // Reset counter on new quizzes
       }
 
-      // Wait before next request
-      console.log("Waiting 2.5 seconds before next request...");
+      console.log("Waiting before next request...");
       await this.delay();
     }
 

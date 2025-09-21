@@ -24,30 +24,22 @@ yarn install
 
 ## Running
 
+See <https://opentdb.com/api_config.php>.
+
 ### Variant 1: Compilation and running
 
 ```bash
 # Compile TypeScript
-npm run build
+pnpm run build
 
 # Run compiled JavaScript
-npm start
+pnpm run start
 ```
 
-### Variant 2: Direct running (with ts-node)
+### Variant 2: Direct running
 
 ```bash
-npm run dev
-```
-
-### Variant 3: Manual running
-
-```bash
-# Compile
-npx tsc quiz_collector.ts --target ES2022 --module ESNext --moduleResolution node
-
-# Run
-node quiz_collector.js
+pnpm run dev
 ```
 
 ## How it works

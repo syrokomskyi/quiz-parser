@@ -14,6 +14,6 @@ yarn-error.log*
 .DS_Store
 *.pem
 
-unique_quizzes.json
+# unique_quizzes.json
 
 .vscode/settings.json
